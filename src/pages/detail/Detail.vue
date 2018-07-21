@@ -9,6 +9,12 @@
     <div class="content">
       <detail-list :list="list"></detail-list>
     </div>
+    <div class="content">
+      <detail-list :list="list"></detail-list>
+    </div>
+    <div class="content">
+      <detail-list :list="list"></detail-list>
+    </div>
   </div>
 </template>
 
@@ -42,7 +48,6 @@ export default {
       }).then(this.handleGetDataSucc)
     },
     handleGetDataSucc (res) {
-      console.error(JSON.stringify(res, null, '\t'))
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
@@ -61,5 +66,5 @@ export default {
 
 <style lang="stylus" scoped>
   .content
-    height: 50rem
+    /*height: 15rem*/
 </style>

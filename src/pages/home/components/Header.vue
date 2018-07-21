@@ -10,7 +10,7 @@
       </div>
       <router-link to="/city">
         <div class="header-right">
-          城市
+          {{this.getCity}}
           <span class="iconfont arrow-icon">&#xe64a;</span>
         </div>
       </router-link>
@@ -19,8 +19,12 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapGetters(['getCity'])
+  }
 }
 </script>
 

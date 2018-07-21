@@ -5,7 +5,7 @@
       <div class="title border-topbottom">当前城市</div>
       <div class="button-list">
         <div class="button-wrapper">
-          <div class="button">还没选</div>
+          <div class="button">{{this.getCity}}</div>
         </div>
       </div>
     </div>
@@ -18,7 +18,7 @@
           v-for="item of hot"
           :key="item.id"
         >
-          <div class="button">{{item.name}}</div>
+          <div class="button" @click="handleCityClick(item.name)">{{item.name}}</div>
         </div>
       </div>
     </div>
@@ -47,6 +47,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import {mapGetters, mapActions} from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -56,9 +57,14 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      // this.$router.push('/')
       console.error(city)
-    }
+      this.setCity(city)
+      this.$router.push('/')
+    },
+    ...mapActions(['setCity'])
+  },
+  computed: {
+    ...mapGetters(['getCity'])
   },
   watch: {
     letter () {

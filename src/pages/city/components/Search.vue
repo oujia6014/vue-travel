@@ -14,6 +14,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import {mapActions} from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -55,10 +56,10 @@ export default {
   },
   methods: {
     handleCityClick (city) {
-      console.error(city)
-      // this.changeCity(city)
-      // this.$router.push('/')
-    }
+      this.setCity(city)
+      this.$router.push('/')
+    },
+    ...mapActions(['setCity'])
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.search)

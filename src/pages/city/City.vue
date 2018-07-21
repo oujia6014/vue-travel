@@ -43,7 +43,6 @@ export default {
       }
     },
     handleLetterChange (letter) {
-      console.error(letter)
       this.letter = letter
     }
   },
