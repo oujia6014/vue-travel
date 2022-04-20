@@ -39,6 +39,7 @@ export default {
         .then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
+      console.log('分支测试')
       res = res.data
       if (res.ret && res.data) {
         const data = res.data
